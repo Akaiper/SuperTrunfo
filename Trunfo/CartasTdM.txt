@@ -1,0 +1,32 @@
+0 A 7 18 60 1960 7 6 Xaveco
+1 B 1 15 70 1963 10 7 Monica
+0 C 8 18 70 1964 5 7 Papa Capim
+0 A 4 17 30 1973 5 3 Chovinista
+0 C 4 12 30 1963 8 6 Sansao
+0 A 5 15 100 1963 7 21 Astronauta
+0 D 7 10 50 1972 7 53 Capitao Feio
+0 A 6 18 80 2004 5 8 Luca
+0 C 2 20 90 1994 7 8 Marina
+0 B 7 20 100 1973 6 25 Louco
+0 D 8 10 60 1963 7 20 Penadinho
+0 D 3 18 70 1961 9 7 Chico Bento
+0 C 5 12 40 1960 7 30 Piteco
+0 B 4 12 40 1959 8 5 Bidu
+0 A 2 18 100 1959 8 10 Franjinha
+0 D 5 20 90 1960 8 12 Horacio
+0 B 2 20 80 1960 8 8 Anjinho
+0 C 7 18 80 1960 5 10 Jeremias
+0 B 6 20 100 2004 5 7 Dorinha
+0 B 5 12 60 1962 8 40 Jotalhao
+0 A 1 16 80 1960 9 7 Cebolinha
+0 B 3 16 40 1975 6 7 Ze Lele
+0 D 6 15 90 1994 6 5 Do Contra
+0 D 2 15 60 1974 6 6 Cascuda
+0 A 3 17 80 1960 6 8 Ze da Roca
+0 A 8 15 60 1972 6 18 Rolo
+0 C 3 14 80 1966 7 7 Rosinha
+0 B 8 20 90 1970 6 17 Tina
+0 C 6 18 80 1994 6 6 Nimbus
+0 C 1 18 90 1961 8 7 Cascao
+0 D 4 12 70 1989 6 2 Mingau
+0 D 1 20 80 1963 8 7 Magali
