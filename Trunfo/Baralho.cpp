@@ -12,6 +12,8 @@ void Baralho::MontaBaralho()
 	}
 
 	txtCartas.close();
+
+
 	
 }
 
@@ -38,10 +40,18 @@ void Baralho::Embaralha()
 void Baralho::DivideCartas() //divide os numeros da pilha embaralhada em duas listas
 {
 
-	for (int i = 0; i < 16; i++) {
-		cartasPC.push_front(embaralhado.top());
-		embaralhado.pop();
-		cartasPlayer.push_front(embaralhado.top());
-		embaralhado.pop();
+	cartasPlayer = new list<int>[menu.nplayer];
+	cartasPC = new list<int>[menu.nbot];
+
+	while (embaralhado.top() != NULL)
+	{
+		for (int i = 0; i < menu.nplayer; i++) {
+			cartasPlayer[i].push_front(embaralhado.top());
+			embaralhado.pop();
+		}
+		for (int i = 0; i < menu.nbot; i++) {
+			cartasPC[i].push_front(embaralhado.top());
+			embaralhado.pop();
+		}
 	}
 }

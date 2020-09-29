@@ -1,10 +1,11 @@
 #pragma once
 #include "LerTxt.h"
+#include "Menu.h"
 #include <algorithm>
 #include <stack>
 #include <list>
 #include <ctime>        // std::time
-#include <cstdlib>      // std::rand, std::srand
+#include <cstdlib> // std::rand, std::srand
 
 using namespace std;
 
@@ -15,8 +16,8 @@ public:
 
 	Cartas cartasTemp;
 
-	list <int> cartasPlayer;
-	list <int> cartasPC;
+	list <int> *cartasPlayer;
+	list <int> *cartasPC;
 
 	void MontaBaralho();
 
@@ -27,9 +28,10 @@ public:
 	LerTxt leitor;
 
 private:
-	Cartas baralho[32];
 
-	
+	Menu menu;
+
+	Cartas baralho[32];
 
 	stack <int> embaralhado;
 

@@ -6,14 +6,19 @@
 #include <fstream>
 #include <string>
 #include "Baralho.h"
+#include "Menu.h"
 using namespace std;
 
 int main()
 {
-    Baralho texto;
+    Baralho baralho;
+    Menu menu;
 
-    texto.MontaBaralho();
-    texto.Embaralha();
+    menu.Njogadores();
+
+    baralho.MontaBaralho();
+    baralho.Embaralha();
+    baralho.DivideCartas();
 
     cout << "Hello World!\n";
 
