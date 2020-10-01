@@ -5,20 +5,15 @@
 #include "LerTxt.h"
 #include <fstream>
 #include <string>
-#include "Baralho.h"
-#include "Menu.h"
+#include "Jogo.h"
 using namespace std;
 
 int main()
 {
-    Baralho baralho;
-    Menu menu;
+    Jogo jogo;
 
-    menu.Njogadores();
+    jogo.LoopJogo();
 
-    baralho.MontaBaralho();
-    baralho.Embaralha();
-    baralho.DivideCartas();
 
     cout << "Hello World!\n";
 

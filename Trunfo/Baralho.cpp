@@ -3,18 +3,22 @@
 void Baralho::MontaBaralho()
 {
 
-	txtCartas.open("CartasTdM.txt");
+	leitor.AbreTxt();
 
 	for (int i = 0; i < 32; i++) {
 
-		baralho[i] = leitor.lendo();
-
+		baralhoCartas[i] = leitor.lendo();
 	}
 
-	txtCartas.close();
-
-
 	
+
+	leitor.AbreTxt();
+
+}
+
+Cartas Baralho::GetCarta(int numeroCarta)
+{
+	return baralhoCartas[numeroCarta];
 }
 
 void Baralho::Embaralha()
@@ -31,27 +35,70 @@ void Baralho::Embaralha()
 
 		embaralhado.push(embaralhando[j]); //bota os numeros embaralhados numa pilha
 	}
-	for (int j = 0; j < 32; j++) {
-
-		cout << embaralhando[j] << endl; //bota os numeros embaralhados numa pilha
-	}
 }
 
-void Baralho::DivideCartas() //divide os numeros da pilha embaralhada em duas listas
+void Baralho::DivideCartas(int nbot, int nplayer) //divide os numeros da pilha embaralhada em duas listas
 {
 
-	cartasPlayer = new list<int>[menu.nplayer];
-	cartasPC = new list<int>[menu.nbot];
+	cartasPlayer = new list<int>[nplayer];
+	cartasPC = new list<int>[nbot];
 
-	while (embaralhado.top() != NULL)
+	while (!embaralhado.empty())
 	{
-		for (int i = 0; i < menu.nplayer; i++) {
-			cartasPlayer[i].push_front(embaralhado.top());
-			embaralhado.pop();
+		for (int i = 0; i < nplayer; i++) {
+			if (embaralhado.empty()) {
+				i = nplayer;
+			}
+			else {
+				cartasPlayer[i].push_front(embaralhado.top());
+				embaralhado.pop();
+			}
 		}
-		for (int i = 0; i < menu.nbot; i++) {
-			cartasPC[i].push_front(embaralhado.top());
-			embaralhado.pop();
+		for (int i = 0; i < nbot; i++) {
+			if (embaralhado.empty()) {
+				i = nbot;
+			}
+			else {
+				cartasPC[i].push_front(embaralhado.top());
+				embaralhado.pop();
+			}
 		}
 	}
 }
+
+void Baralho::PassaAsCartas(int indiceGanhador, bool humano, int nbot, int nplayer)
+{
+
+	if (humano) {
+		for (int i = 0; i < nplayer; i++) {
+			if (!cartasPlayer[i].empty()) {
+				cartasPlayer[indiceGanhador].push_back(cartasPlayer[i].front());
+				cartasPlayer[i].pop_front();
+			}
+		}
+		for (int i = 0; i < nbot; i++) {
+			if (!cartasPC[i].empty()) {
+				cartasPlayer[indiceGanhador].push_back(cartasPC[i].front());
+				cartasPC[i].pop_front();
+			}
+		}
+	}
+	else {
+		for (int i = 0; i < nplayer; i++) {
+			if (!cartasPlayer[i].empty()) {
+				cartasPC[indiceGanhador].push_back(cartasPlayer[i].front());
+				cartasPlayer[i].pop_front();
+			}
+		}
+		for (int i = 0; i < nbot; i++) {
+			if (!cartasPC[i].empty()) {
+				cartasPC[indiceGanhador].push_back(cartasPC[i].front());
+				cartasPC[i].pop_front();
+			}
+		}
+	}
+
+
+}
+
+

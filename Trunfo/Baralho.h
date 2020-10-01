@@ -5,7 +5,7 @@
 #include <stack>
 #include <list>
 #include <ctime>        // std::time
-#include <cstdlib> // std::rand, std::srand
+#include <stdlib.h> // std::rand, std::srand
 
 using namespace std;
 
@@ -23,7 +23,11 @@ public:
 
 	void Embaralha();
 
-	void DivideCartas();
+	void DivideCartas(int nbot, int nplayer);
+
+	void PassaAsCartas(int indiceGanhador, bool humano, int nbot, int nplayer);
+
+	Cartas GetCarta(int numeroCarta);
 
 	LerTxt leitor;
 
@@ -31,7 +35,7 @@ private:
 
 	Menu menu;
 
-	Cartas baralho[32];
+	Cartas baralhoCartas[32];
 
 	stack <int> embaralhado;
 
@@ -40,8 +44,6 @@ private:
 	ifstream txtCartas;
 
 	float random;
-
-	//blabla
 
 
 

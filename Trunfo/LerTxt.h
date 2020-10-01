@@ -12,6 +12,7 @@ class LerTxt
 public:
 
 	Cartas lendo();
+	void AbreTxt();
 
 	bool abriu = false;
 	

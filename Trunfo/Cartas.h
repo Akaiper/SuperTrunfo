@@ -17,8 +17,6 @@ public:
 	int hallDaFama;
 	int idade;
 
-	Cartas getCartas();
-
 private:
 
 

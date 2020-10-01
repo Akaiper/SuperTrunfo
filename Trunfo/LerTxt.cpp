@@ -13,5 +13,18 @@ Cartas LerTxt::lendo()
 	txtCartas >> temp.idade;
 	txtCartas.ignore();
 	getline(txtCartas, temp.nome);
+
 	return temp;
+}
+
+void LerTxt::AbreTxt()
+{
+	if (!txtCartas.is_open()) {
+		txtCartas.open("CartasTdM.txt");
+	}
+	else {
+		txtCartas.close();
+	}
+
+	
 }
