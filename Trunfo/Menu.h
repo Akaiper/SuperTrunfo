@@ -20,5 +20,6 @@ private:
 
 	string lixo;
 	int nplayer, nbot, total;
+	float np, nb;
 };
 

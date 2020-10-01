@@ -284,14 +284,14 @@ void Jogo::ContaEmpty()
 	for (int i = 0; i < nplayer; i++) {
 		if (baralho.cartasPlayer[i].empty()) {
 
-			cout << "Player " << i + 1 << "ficou sem cartas\n";
+			cout << "Player " << i + 1 << " ficou sem cartas\n";
 			quantosPerderam++;
 		}
 	}
 	for (int i = 0; i < nbot; i++) {
 		if (baralho.cartasPC[i].empty()) {
 
-			cout << "Bot " << i + 1 << "ficou sem cartas\n";
+			cout << "Bot " << i + 1 << " ficou sem cartas\n";
 			quantosPerderam++;
 		}
 	}
@@ -299,13 +299,13 @@ void Jogo::ContaEmpty()
 	if (quantosPerderam == total - 1) {
 		for (int i = 0; i < nplayer; i++) {
 			if (!baralho.cartasPlayer[i].empty()) {
-				cout << "O Player " << i + 1 << "ganhou o jogo!";
+				cout << "O Player " << i + 1 << " ganhou o jogo!";
 				acabou = true;
 			}
 		}
 		for (int i = 0; i < nbot; i++) {
 			if (!baralho.cartasPC[i].empty()) {
-				cout << "O Bot " << i + 1 << "ganhou o jogo!";
+				cout << "O Bot " << i + 1 << " ganhou o jogo!";
 				acabou = true;
 			}
 		}

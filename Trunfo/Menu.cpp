@@ -9,21 +9,11 @@ void Menu::Njogadores()
 	cout << "\nQuantos bots serao?\n";
 	cin >> nbot;
 
-	while (nplayer + nbot > 32) {
+	while (nplayer > 32 || nbot > 32 || nplayer < 0 || nbot < 0 || nplayer + nbot > 32 || nplayer + nbot <= 1) {
 
 		clear();
 
-		cout << "\n\nNumero total de jogadores ultrapassou o numero de cartas (32)\n";
-		cout << "\nInsira novamente o numero de jogadores humanos:\n";
-		cin >> nplayer;
-		cout << "\nQuantos bots serao?\n";
-		cin >> nbot;
-	}
-
-	while (nplayer + nbot == 1) {
-		clear();
-
-		cout << "\n\nNao ha jogadores suficientes, minimo 2 jogadores (somando bots e humanos)\n";
+		cout << "\n\nNumeros inseridos invalidos\n";
 		cout << "\nInsira novamente o numero de jogadores humanos:\n";
 		cin >> nplayer;
 		cout << "\nQuantos bots serao?\n";

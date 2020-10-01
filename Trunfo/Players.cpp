@@ -22,6 +22,13 @@ int Players::EscolheAtributo(int qualCarta, int player, Cartas carta)
 	cout << "\n\nQue atributo voce quer?\n";
 	cin >> atributo;
 
+	while (atributo > 5 || atributo < 1) {
+
+		cout << "\nNumero Invalido";
+		cout << "\n\nQue atributo voce quer?\n";
+		cin >> atributo;
+	}
+
 	menu.clear();
 
 	return atributo;
