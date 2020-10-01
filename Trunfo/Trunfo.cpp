@@ -13,11 +13,6 @@ int main()
     Jogo jogo;
 
     jogo.LoopJogo();
-
-
-    cout << "Hello World!\n";
-
-   
 }
 
 // Executar programa: Ctrl + F5 ou Menu Depurar > Iniciar Sem Depuração

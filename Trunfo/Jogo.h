@@ -14,6 +14,7 @@ private:
 
 	void DesenhaCarta();
 	void ContaEmpty();
+	void ImprimeNCartas();
 
 
 	Baralho baralho;
@@ -39,6 +40,9 @@ private:
 	int indiceDaVez = 0;
 
 	int nbot, nplayer, total;
+
+	int *quemJaPerdeu;
+	int indicePerdeu;
 
 
 };

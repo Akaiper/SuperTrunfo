@@ -12,11 +12,9 @@ void Jogo::LoopJogo()
 	baralho.Embaralha();
 	baralho.DivideCartas(nbot, nplayer);
 
-	
-
-	
-
 	total = nplayer + nbot;
+
+	quemJaPerdeu = new int [total];
 
 	quantosPerderam = 0;
 	acabou = false;
@@ -30,12 +28,12 @@ void Jogo::LoopJogo()
 
 
 	while (!acabou) {
+
+		
 		
 		if (eHumano) {
 
 			player = baralho.cartasPlayer[indiceDaVez];
-
-			//baralho.GetCarta(baralho.cartasPlayer[indiceDaVez].front());
 
 			atributo = players.EscolheAtributo(player.front(), indiceDaVez, baralho.GetCarta(baralho.cartasPlayer[indiceDaVez].front()));
 		}
@@ -45,6 +43,8 @@ void Jogo::LoopJogo()
 
 			atributo = bots.DefineAtributo();
 		}
+
+		ImprimeNCartas();
 
 		cout << "\n\nO atributo escolhido foi ";
 
@@ -57,7 +57,7 @@ void Jogo::LoopJogo()
 			cout << "Esperteza\n";
 			break;
 		case 3:
-			cout << "Ano de Criaçao\n";
+			cout << "Ano de Criacao\n";
 			break;
 		case 4:
 			cout << "Hall da Fama\n";
@@ -91,7 +91,7 @@ void Jogo::LoopJogo()
 void Jogo::DesenhaCarta()
 {
 	for (int i = 0; i < nplayer; i++) {
-		if (!baralho.cartasPlayer[i].empty()) {
+		if (baralho.cartasPlayer[i].front() < 33) {
 
 			carta = baralho.GetCarta(baralho.cartasPlayer[i].front());
 
@@ -186,7 +186,7 @@ void Jogo::DesenhaCarta()
 	}
 	for (int i = 0; i < nbot; i++) {
 
-		if (!baralho.cartasPC[i].empty()) {
+		if (baralho.cartasPC[i].front() < 33) {
 
 			carta = baralho.GetCarta(baralho.cartasPC[i].front());
 
@@ -285,6 +285,9 @@ void Jogo::ContaEmpty()
 		if (baralho.cartasPlayer[i].empty()) {
 
 			cout << "Player " << i + 1 << " ficou sem cartas\n";
+
+			baralho.cartasPlayer[i].push_front(33);
+
 			quantosPerderam++;
 		}
 	}
@@ -292,22 +295,58 @@ void Jogo::ContaEmpty()
 		if (baralho.cartasPC[i].empty()) {
 
 			cout << "Bot " << i + 1 << " ficou sem cartas\n";
+
+			baralho.cartasPC[i].push_front(33);
+
 			quantosPerderam++;
+		}
+	}
+
+	for (int i = 0; i < nplayer; i++) {
+		if (baralho.cartasPlayer[i].front() == 33) {
+
+			baralho.cartasPlayer[i].pop_front();
+			baralho.cartasPlayer[i].push_front(34);
+
+		}
+	}
+	for (int i = 0; i < nbot; i++) {
+		if (baralho.cartasPC[i].front() == 33) {
+
+			baralho.cartasPC[i].pop_front();
+			baralho.cartasPC[i].push_front(34);
+
 		}
 	}
 
 	if (quantosPerderam == total - 1) {
 		for (int i = 0; i < nplayer; i++) {
-			if (!baralho.cartasPlayer[i].empty()) {
+			if (baralho.cartasPlayer[i].front() < 33) {
 				cout << "O Player " << i + 1 << " ganhou o jogo!";
 				acabou = true;
 			}
 		}
 		for (int i = 0; i < nbot; i++) {
-			if (!baralho.cartasPC[i].empty()) {
+			if (baralho.cartasPC[i].front() < 33) {
 				cout << "O Bot " << i + 1 << " ganhou o jogo!";
 				acabou = true;
 			}
+		}
+	}
+
+}
+
+void Jogo::ImprimeNCartas()
+{
+
+	for (int i = 0; i < nplayer; i++) {
+		if (baralho.cartasPlayer[i].front() < 33) {
+			cout << "O Player " << i + 1 << " tem " << baralho.cartasPlayer[i].size() << " cartas\n";
+		}
+	}
+	for (int i = 0; i < nbot; i++) {
+		if ( baralho.cartasPC[i].front() < 33) {
+			cout << "O Bot " << i + 1 << " tem " << baralho.cartasPC[i].size() << " cartas\n";
 		}
 	}
 

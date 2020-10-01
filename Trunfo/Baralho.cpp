@@ -71,13 +71,13 @@ void Baralho::PassaAsCartas(int indiceGanhador, bool humano, int nbot, int nplay
 
 	if (humano) {
 		for (int i = 0; i < nplayer; i++) {
-			if (!cartasPlayer[i].empty()) {
+			if (cartasPlayer[i].front() < 33) {
 				cartasPlayer[indiceGanhador].push_back(cartasPlayer[i].front());
 				cartasPlayer[i].pop_front();
 			}
 		}
 		for (int i = 0; i < nbot; i++) {
-			if (!cartasPC[i].empty()) {
+			if (cartasPC[i].front() < 33) {
 				cartasPlayer[indiceGanhador].push_back(cartasPC[i].front());
 				cartasPC[i].pop_front();
 			}
@@ -85,13 +85,13 @@ void Baralho::PassaAsCartas(int indiceGanhador, bool humano, int nbot, int nplay
 	}
 	else {
 		for (int i = 0; i < nplayer; i++) {
-			if (!cartasPlayer[i].empty()) {
+			if (cartasPlayer[i].front() < 33) {
 				cartasPC[indiceGanhador].push_back(cartasPlayer[i].front());
 				cartasPlayer[i].pop_front();
 			}
 		}
 		for (int i = 0; i < nbot; i++) {
-			if (!cartasPC[i].empty()) {
+			if (cartasPC[i].front() < 33) {
 				cartasPC[indiceGanhador].push_back(cartasPC[i].front());
 				cartasPC[i].pop_front();
 			}
